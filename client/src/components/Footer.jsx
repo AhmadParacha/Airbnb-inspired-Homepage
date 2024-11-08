@@ -12,9 +12,10 @@ export default function Footer() {
     
           <div style={{ display: 'flex', gap: '40px', padding: '10px', backgroundColor:"silver" }}>
               <p><strong>© 2024 Airbnb, Inc.</strong></p>
-              <p>Privacy Policy</p>
-              <p>Terms</p>
-              <p>Sitemap</p>
+              <p>.  Privacy Policy</p>
+              <p>.  Terms</p>
+              <p>.  Sitemap</p>
+              <p>.  Your Privacy Policies </p>
           </div>
     
           <div style={{ display: 'flex', gap: '20px' }}>
