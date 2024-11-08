@@ -1,5 +1,5 @@
 {
-  "devDependencies": {
-    "tailwindcss": "^3.4.13"
+  "dependencies": {
+    "react-bootstrap": "^2.10.5"
   }
 }

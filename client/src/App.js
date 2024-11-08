@@ -1,48 +1,29 @@
-import React, { useState, useEffect } from 'react';
-import Navbar from './components/Navbar';
-import SearchBar from './components/SearchBar';
-import Categories from './components/Categories';
-import ListingCard from './components/ListingCard';
+import React from 'react'
+import Header from './components/Header'
+import './App.css';
 import Footer from './components/Footer';
+import Card from './components/card';
 
-const App = () => {
-  const [listings, setListings] = useState([]);
 
-  useEffect(() => {
-    // Simulate fetching data from an API
-    const fetchListings = () => {
-      const mockData = [
-        {
-          image: '/path/to/image1.jpg',
-          title: 'Beautiful Beachfront House',
-          type: 'Entire home',
-          guests: 6,
-          bedrooms: 3,
-          bathrooms: 2,
-          price: '$250',
-          rating: 4.8,
-        },
-        // more mock listings
-      ];
-      setListings(mockData);
-    };
-
-    fetchListings();
-  }, []); // Runs only once when the component mounts
-
+export default function App() {
   return (
-    <>
-      <Navbar />
-      <SearchBar />
-      <Categories />
-      <div className="listings">
-        {listings.map((listing) => (
-          <ListingCard key={listing.title} listing={listing} />
-        ))}
+    <div>
+      <Header/>
+      <div className='row'>
+        <Card/>
+        <Card/>
+        <Card/>
+        <Card/>
+        <Card/>
+        <Card/>
+        <Card/>
+        <Card/>
       </div>
-      <Footer />
-    </>
-  );
-};
+      <Footer/>
+    </div>
+  )
+}
+ 
 
-export default App;
+
+
