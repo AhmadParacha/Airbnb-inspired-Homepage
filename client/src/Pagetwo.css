@@ -1,0 +1,44 @@
+.pagetwo-container {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    max-width: 900px;
+    margin: auto;
+  }
+  
+  .pagetwo-container img {
+    display: block;
+    margin: 20px auto;
+    width: 100%;
+    max-width: 720px; /* Ensures images don't overflow */
+    border-radius: 10px; /* Rounded corners for images */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow effect */
+  }
+  
+  .pagetwo-container h4 {
+    font-size: 1.5rem;
+    color: #333;
+    margin: 15px 0 10px;
+  }
+  
+  .pagetwo-container h6 {
+    font-size: 1rem;
+    color: #555;
+    margin: 5px 0;
+  }
+  
+  .pagetwo-container p {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.5;
+    margin: 10px 0;
+  }
+  
+  .pagetwo-description {
+    margin-top: 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #444;
+    border-top: 2px solid #ddd;
+    padding-top: 10px;
+  }
+  

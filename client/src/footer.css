@@ -1,0 +1,139 @@
+.footer-container {
+    background-color: #f7f7f7;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .footer-sections {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .footer-column {
+    flex: 1;
+    margin-right: 20px;
+  }
+  
+  .footer-column h5 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .footer-column p {
+    font-size: 14px;
+    color: #555;
+    margin: 5px 0;
+  }
+  
+  .footer-divider {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 20px 0;
+  }
+  
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .footer-left {
+    display: flex;
+    gap: 15px;
+    font-size: 14px;
+    color: #555;
+  }
+  
+  .footer-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 14px;
+    color: #555;
+  }
+  
+  .footer-right img {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+  }
+
+
+
+
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: white;
+    border-bottom: 1px solid #ddd;
+    font-family: Arial, sans-serif;
+  }
+  
+  .header-logo img {
+    height: 30px;
+  }
+  
+  .header-search {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 50px;
+    padding: 5px 10px;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  
+  .search-option {
+    font-size: 14px;
+    margin: 0 10px;
+    color: #333;
+  }
+  
+  .divider {
+    height: 20px;
+    width: 1px;
+    background-color: #ddd;
+  }
+  
+  .search-icon {
+    background-color: #ff385c;
+    color: white;
+    padding: 5px;
+    border-radius: 50%;
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .header-nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .nav-icon {
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .profile-menu {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    border: 1px solid #ddd;
+    border-radius: 50px;
+    padding: 5px 10px;
+    background-color: #f7f7f7;
+  }
+  
+  .menu-icon,
+  .profile-icon {
+    font-size: 16px;
+    color: #333;
+  }
+  
+  

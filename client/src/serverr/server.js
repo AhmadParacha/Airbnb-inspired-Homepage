@@ -57,6 +57,21 @@ app.get('/', async (req, res) => {
     res.status(500).json({ message: 'Error fetching Airbnb data', error });
   }
 });
+app.get('/rooms/:id', async (req, res) => {
+  try {
+    const roomId = req.params.id;  // Get the ID from the URL params
+    const airbnb = await Airbnb.findOne({ id: roomId });  // Find the room by ID in MongoDB
+    
+    if (!airbnb) {
+      return res.status(404).json({ message: 'Airbnb listing not found' });
+    }
+    
+    res.status(200).json(airbnb);  // Return the room data as JSON
+  } catch (error) {
+    console.error('Error fetching data:', error);
+    res.status(500).json({ message: 'Error fetching Airbnb data', error });
+  }
+});
 
 // 3. Add a new Airbnb listing
 app.post('/api/airbnbs', async (req, res) => {

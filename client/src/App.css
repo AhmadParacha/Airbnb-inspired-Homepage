@@ -33,14 +33,7 @@
     }
   }
 
-.cardItem
-{
-    flex-basis: 15%;
-    margin: 3%;
-    height: 200px;
-    background-color: #a7acb8;
 
-}
 .Footer-container
 {
   display: flex;
@@ -102,6 +95,7 @@
   text-align: left;
   margin-top: 10px;
 }
+
 .menu-container {
   position: relative;
   display: flex;
@@ -190,32 +184,72 @@ p {
   margin-top: -5px;
   font-size: 12px; /* Adjust text size if needed for smaller screens */
 }
-.roompic {
-  height: 200px;
-  width: 100%;
-  object-fit: cover;
-  border-radius: 10px;
-}
+
+
+
+
+
+
 
 .card-container {
   display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: flex-start;
-  padding: 10px;
-  margin-left: 8%;
+  flex-wrap: wrap; /* Allow cards to wrap to the next row */
+  justify-content: space-between; /* Add space between cards */
+  gap: 20px; /* Optional: Add consistent gap between cards */
+  padding: 0 10px; /* Add padding on left and right sides of the container */
+  width: 30%;
+  height: 30%;
 }
 
 .card-item {
-  width: 300px; /* Adjust width to fit multiple cards on the same line */
-  background-color: #fff;
-  border: 1px solid #d9d8d8;
-  border-radius: 10px;
+  border: 1px solid #ddd; /* Add border around each card */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
+  margin: 10px 0; /* Vertical space between rows */
   padding: 15px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
+  background-color: #fff;
+  flex: 1 1 calc(25% - 20px); /* Four cards per row, accounting for margin */
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Make the card content flexible */
+}
+
+.roompic {
+  width: 100%; /* Ensure image fills the container width */
+  height: 200px; /* Fixed height */
+  object-fit: cover; /* Ensure the image covers the area */
+  border-radius: 5px;
+  margin-bottom: 10px; /* Adds some space below the image */
 }
 
 .card-details {
   margin-top: 10px;
+}
+
+.card-details h5 {
+  font-size: 18px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-details p {
+  font-size: 15px;
+  color: #555;
+  margin: 5px 0;
+}
+
+.cardscss {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* Ensure equal gap between cards */
+  padding: 0 10px; /* Ensure gap from both sides of the container */
+}
+
+.linkcss {
+  width: 25%;
+  height: 25%;
+  padding: 15px;
 }
