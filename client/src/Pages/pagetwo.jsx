@@ -1,17 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom'; // Import useParams to access the URL parameter
+import { useParams } from 'react-router-dom';
 import Footer from '../components/Footer';
-import '../Pagetwo.css'; // Import the CSS file
+import '../Pagetwo.css';
 import PagetwoHeader from '../components/pagetwoheader';
+ 
 
 export default function PageTwo() {
-  const { id } = useParams(); // Get room ID from URL
-  const [room, setRoom] = useState(null); // State to store room data
-  const [loading, setLoading] = useState(true); // To track loading state
-  const [error, setError] = useState(null); // To track errors
-
+  const { id } = useParams();
+  const [room, setRoom] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  let a =1;
   useEffect(() => {
-    // Fetch room details based on the room ID
+    alert(id);
+    a=id;
     fetch(`http://localhost:8080/rooms/${id}`)
       .then((response) => {
         if (!response.ok) {
@@ -20,7 +22,7 @@ export default function PageTwo() {
         return response.json();
       })
       .then((data) => {
-        setRoom(data); // Set room data
+        setRoom(data);
         setLoading(false);
       })
       .catch((err) => {
@@ -28,7 +30,31 @@ export default function PageTwo() {
         setError('Failed to fetch room details');
         setLoading(false);
       });
-  }, [id]); // Run the effect when the room ID changes
+  }, [id]);
+
+  const handleBooking = async (id) => {
+    try {
+      console.log('ID passed to handleBooking:', id); 
+      const response = await fetch(`http://localhost:8080/rooms/${id}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ Status: 'Not Available' }),
+      });
+  
+      if (!response.ok) {
+        throw new Error('Failed to update room status');
+      }
+  
+      const updatedRoom = await response.json();
+      setRoom(updatedRoom);
+    } catch (error) {
+      console.error('Error updating room status:', error);
+      alert('Failed to update room status. Please try again.');
+    }
+  };
+  
 
   if (loading) {
     return <div>Loading...</div>;
@@ -45,10 +71,24 @@ export default function PageTwo() {
       <h4>{room.name}</h4>
       <h6><strong>BEDROOMS:</strong> {room.bedrooms}</h6>
       <h6><strong>BATHROOMS:</strong> {room.bathrooms}</h6>
-      <h6><strong>STATUS:</strong> {room.status}</h6>
+      <h6>
+        <strong>STATUS:</strong>{' '}
+        <span
+          style={{
+            color: room.Status.toLowerCase() === 'available' ? 'green' : 'red',
+          }}
+        >
+          {room.Status}
+        </span>
+        {room.Status.toLowerCase() === 'available' && (
+          <button className="book-now-button" onClick={handleBooking}>
+            Book Now
+          </button>
+        )}
+      </h6>
       <h6><strong>RATING:</strong> {room.rating}</h6>
       <h4 className="pagetwo-description">
-      <strong>DESCRIPTION:</strong>
+        <strong>DESCRIPTION:</strong>
         <p>{room.description}</p>
       </h4>
       <Footer />

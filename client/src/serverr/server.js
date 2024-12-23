@@ -114,3 +114,27 @@ app.delete('/api/airbnbs/:id', async (req, res) => {
     res.status(500).json({ message: 'Error deleting Airbnb', error });
   }
 });
+
+
+app.post('/rooms/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const updatedRoom = await Airbnb.findOneAndUpdate(
+      { id }, // Match the room by ID
+      { Status: 'Not Available' },
+      { new: true } 
+    );
+
+    if (!updatedRoom) {
+      return res.status(404).json({ message: 'Room not found' });
+    }
+
+    res.status(200).json(updatedRoom);
+  } catch (error) {
+    console.error('Error updating room status:', error);
+    res.status(500).json({ message: 'Error updating room status', error });
+  }
+});
+
+

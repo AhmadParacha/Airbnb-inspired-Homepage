@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom'; // Import Link for routing
+import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import IconBar from '../components/Iconbar';
 import Card from '../components/card';
@@ -33,6 +33,12 @@ export default function HomePage() {
       });
   }, []);
 
+  // Function to shuffle the displayed cards
+  const shuffleCards = () => {
+    const shuffled = [...filteredRooms].sort(() => Math.random() - 0.5); // Shuffle the array
+    setFilteredRooms(shuffled.slice(0, 20)); // Update the displayed cards
+  };
+
   // Filter rooms based on search query
   const handleSearchChange = (e) => {
     const query = e.target.value;
@@ -58,17 +64,17 @@ export default function HomePage() {
   return (
     <div>
       <Header onSearchChange={handleSearchChange} />
-      <IconBar />
+      <IconBar onIconClick={shuffleCards} /> {/* Pass the shuffleCards function */}
       
-    <div className='cardscss'>
-        {filteredRooms.map((room, index) => (
-            <Link className='linkcss' key={index} to={`/listing/${room.id}`} style={{ textDecoration: 'none' }}>
+      <div className='cardscss'>
+        {/* Display only the first 20 rooms */}
+        {filteredRooms.slice(0, 20).map((room, index) => (
+          <Link className='linkcss' key={index} to={`/listing/${room.id}`} style={{ textDecoration: 'none' }}>
             <Card room={room} />
-            </Link>
-                    ))}
-    </div>
+          </Link>
+        ))}
+      </div>
 
-      
       <Footer />
     </div>
   );

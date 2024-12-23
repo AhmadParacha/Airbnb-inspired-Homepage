@@ -8,7 +8,8 @@ const airbnbSchema = new mongoose.Schema({
   description: { type: String, required: true },
   pic_url: { type: String, required: true },
   price: { type: String, required: true },
-  rating: { type: String, required: true }
+  rating: { type: String, required: true },
+  status: {type: String, required:true}
 });
 
 module.exports = mongoose.model('Airbnb', airbnbSchema, 'airbnb');

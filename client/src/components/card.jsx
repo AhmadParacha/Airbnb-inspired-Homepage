@@ -13,7 +13,7 @@ function Card({ room }) {
           <span style={{ float: 'right' }}>*{room.rating }</span>
         </h5>
         <p style={{ marginBottom: '5px' }}>
-          Bedrooms: {room.rating} | Bathrooms: {room.bathrooms}
+          Bedrooms: {room.bedrooms} | Bathrooms: {room.bathrooms}
         </p>
         <p><strong>{room.price}</strong></p>
       </div>
