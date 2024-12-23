@@ -120,21 +120,20 @@ app.post('/rooms/:id', async (req, res) => {
   try {
     const { id } = req.params;
 
+    // Update the room's status to 'Not Available'
     const updatedRoom = await Airbnb.findOneAndUpdate(
-      { id }, // Match the room by ID
+      { id: Number(id) }, // Adjust to match your database's ID type
       { Status: 'Not Available' },
-      { new: true } 
+      { new: true }
     );
 
     if (!updatedRoom) {
       return res.status(404).json({ message: 'Room not found' });
     }
 
-    res.status(200).json(updatedRoom);
+    res.status(200).json({ message: 'Room status updated successfully', updatedRoom });
   } catch (error) {
     console.error('Error updating room status:', error);
     res.status(500).json({ message: 'Error updating room status', error });
   }
 });
-
-

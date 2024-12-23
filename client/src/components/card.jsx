@@ -6,7 +6,7 @@ function Card({ room }) {
 
   return (
     <div className="card-item">
-      <img src={room.picture_url} className="roompic" />
+      <img src={room.picture_url} className="roompic" alt={room.name} />
       <div className="card-details">
         <h5 style={{ marginBottom: '5px' }}>
           <span>{room.name} </span>
@@ -20,6 +20,5 @@ function Card({ room }) {
     </div>
   );
 }
-
 
 export default Card;
